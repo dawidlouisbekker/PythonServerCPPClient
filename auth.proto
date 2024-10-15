@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package Authenticator;
+
+service Auth {
+  rpc ClientToServerPortStream (Answer) returns (stream Variables) {}
+  rpc ServerToClientPortStream (Answer) returns (stream Variables) {}
+  rpc ClientVerification (Answer) returns (Variables) {}
+  rpc ServerVerification (Answer) returns (Variables) {}
+}
+
+message Variables {
+  int32 a = 1;
+  int32 b = 2;
+  int32 c = 3;
+  int32 x = 4;
+  string ServerContext = 5;
+}
+
+message Answer {
+    double Answer = 1;
+}
+
